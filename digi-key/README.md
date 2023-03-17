@@ -25,7 +25,7 @@ copy it using `dd` to sdcard
 sudo dd if=output/images/sdcard.img of=/dev/sde bs=1M
 ```
 
-boot and see the UART
+boot and see the UART, username is `root` without password
 
 ```shell
 minicom -b 115200 -o -D /dev/ttyUSB0
