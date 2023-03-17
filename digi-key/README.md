@@ -18,3 +18,17 @@ make menuconfig #curses interface
 sudo dnf install perl-ExtUtils-MakeMaker # Your Perl installation is not complete enough; at least the following modules are missing: ExtUtils::MakeMaker
 make -j12
 ```
+
+copy it using `dd` to sdcard
+
+```shell
+sudo dd if=output/images/sdcard.img of=/dev/sde bs=1M
+```
+
+boot and see the UART
+
+```shell
+minicom -b 115200 -o -D /dev/ttyUSB0
+```
+
+![minicom](../images/Screenshot%20from%202023-03-17%2023-38-12.png)
