@@ -1,0 +1,7 @@
+[submodule "digi-key/buildroot"]
+	path = digi-key/buildroot
+	url = git://git.buildroot.net/buildroot
+[submodule "digi-key/buildroot-external-st"]
+	path = digi-key/buildroot-external-st
+	url = https://github.com/bootlin/buildroot-external-st.git
+	branch = st/2022.02.7
