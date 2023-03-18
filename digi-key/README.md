@@ -69,7 +69,7 @@ check distro config file
 vim meta-poky/conf/distro/poky.conf
 ```
 
-get stm32 layer
+get stm32 layer and openembedded-core
 
 ```shell
 cd ..
@@ -80,6 +80,130 @@ git checkout kirkstone
 less README # copy openembedded-core layer git
 cd ..
 git submodule add https://github.com/openembedded/openembedded-core.git
+cd openembedded-core/
+git checkout kirkstone
+cd ..
+git submodule add https://github.com/openembedded/meta-openembedded.git
+cd meta-openembedded
+git checkout kirkstone
+cd ..
+source poky/oe-init-build-env build-mp1
+```
+
+bitbake
+
+```shell
+pwd  # /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/build-mp1
+bitbake # Nothing to do.  Use 'bitbake world' to build everything
+bitbake-layers show-layers # layers
+```
+
+layers
+
+```shell
+[fahmad@ryzen build-mp1]$ bitbake-layers show-layers
+NOTE: Starting bitbake server...
+layer                 path                                      priority
+==========================================================================
+meta                  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta  5
+meta-poky             /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta-poky  5
+meta-yocto-bsp        /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta-yocto-bsp  5
+```
+
+edit `bblayers.conf`
+
+```shell
+vim conf/bblayers.conf
+```
+
+inside `bblayers.conf`
+
+```config
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta \
+  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta-poky \
+  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta-yocto-bsp \
+  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/meta-openembedded/meta-oe \
+  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/meta-openembedded/meta-python \
+  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/meta-st-stm32mp \
+  "
+```
+
+check layers again
+
+```shell
+[fahmad@ryzen build-mp1]$  bitbake-layers show-layers
+NOTE: Starting bitbake server...
+layer                 path                                      priority
+==========================================================================
+meta                  /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta  5
+meta-poky             /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta-poky  5
+meta-yocto-bsp        /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/poky/meta-yocto-bsp  5
+meta-oe               /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/meta-openembedded/meta-oe  5
+meta-python           /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/meta-openembedded/meta-python  5
+meta-st-stm32mp       /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/meta-st-stm32mp  6
+```
+
+choose machine
+
+```shell
+cd ..
+cd meta-st-stm32mp/conf/
+cd machine
+less stm32mp15-disco.conf # we're using stm32mp15f-dk2
+cd ~/GitHub/stm32mp157f/digi-key/yocto/
+cd build-mp1/
+vim conf/local.conf # we're using MACHINE = "stm32mp15-disco"
+```
+
+machine config
+
+```shell
+[fahmad@ryzen build-mp1]$  cat conf/local.conf | grep MACHINE
+#MACHINE ?= "qemuarm"
+#MACHINE ?= "qemuarm64"
+#MACHINE ?= "qemumips"
+#MACHINE ?= "qemumips64"
+#MACHINE ?= "qemuppc"
+#MACHINE ?= "qemux86"
+#MACHINE ?= "qemux86-64"
+#MACHINE ?= "beaglebone-yocto"
+#MACHINE ?= "genericx86"
+#MACHINE ?= "genericx86-64"
+#MACHINE ?= "edgerouter"
+#MACHINE ??= "qemux86-64"
+MACHINE = "stm32mp15-disco"
+#SDKMACHINE ?= "i686"
+```
+
+supported images: https://docs.yoctoproject.org/4.0.8/ref-manual/images.html
+
+we'll use `core-image-minimal-dev`
+
+menuconfig
+
+```shell
+bitbake -c menuconfig virtual/kernel
+```
+
+build image
+
+```shell
+bitbake core-image-minimal-dev
+```
+
+there was an error and I had to do this
+
+```shell
+git config --global user.email "myemail@tutanota.com"
+git config --global user.name "fahmi ahmad"
 ```
 
 # References

@@ -14,3 +14,6 @@
 [submodule "digi-key/yocto/openembedded-core"]
 	path = digi-key/yocto/openembedded-core
 	url = https://github.com/openembedded/openembedded-core.git
+[submodule "digi-key/yocto/meta-openembedded"]
+	path = digi-key/yocto/meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded.git
