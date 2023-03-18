@@ -220,8 +220,25 @@ cd tmp/deploy/images/stm32mp15-disco/
 
 ## flash SD card & boot process
 
+create `.raw` image
+
+```shell
+cd /home/fahmad/GitHub/stm32mp157f/digi-key/yocto/build-mp1/tmp/deploy/images/stm32mp15-disco/scripts
+./create_sdcard_from_flashlayout.sh ../flashlayout_core-image-minimal-dev/optee/FlashLayout_sdcard_stm32mp157f-dk2-optee.tsv
+```
+
+flash the image to sdcard
+
+```shell
+sudo dd if=../FlashLayout_sdcard_stm32mp157f-dk2-optee.raw of=/dev/sdd bs=8M conv=fdatasync
+```
+
+![yocto](../images/Screenshot%20from%202023-03-18%2016-50-54.png)
+
 # References
 
 - https://github.com/STMicroelectronics/meta-st-stm32mp
 - https://github.com/STMicroelectronics/meta-st-openstlinux
 - https://layers.openembedded.org/layerindex/branch/master/layers/
+- https://wiki.st.com/stm32mpu/wiki/Boot_chain_overview
+- https://www.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32-mpu-openstlinux-distribution/stm32mp1starter.license=1679045326404.product=STM32MP15Starter.version=4.1.0.html#overview

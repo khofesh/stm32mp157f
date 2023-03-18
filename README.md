@@ -12,3 +12,4 @@ STM32MP157F-DK2
 - [st website - STM32MP1 workshop MOOC](https://www.st.com/content/st_com/en/support/learning/stm32-education/stm32-moocs/STM32MP1_workshop.html)
 - [STM32MP1 workshop materials](https://drive.google.com/drive/u/0/folders/1eHO37VljVpbTt-TBJFZ2-Yack5fZPj-v)
 - [Introduction to Embedded Linux](https://www.youtube.com/playlist?list=PLEBQazB0HUyTpoJoZecRK6PpDG31Y7RPB)
+- [STM32MP1 boot chain](https://wiki.st.com/stm32mpu/wiki/Boot_chain_overview)
