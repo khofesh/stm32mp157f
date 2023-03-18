@@ -248,3 +248,6 @@ sudo dd if=../FlashLayout_sdcard_stm32mp157f-dk2-optee.raw of=/dev/sdd bs=8M con
 - https://wiki.st.com/stm32mpu/wiki/STM32MP15_Discovery_kits_-_Starter_Package#Image_flashing
 - [How to populate the SD card with dd command](https://wiki.st.com/stm32mpu/wiki/How_to_populate_the_SD_card_with_dd_command)
 - [bootlin - Building a Linux system for the STM32MP1: implementing factory flashing](https://bootlin.com/blog/building-a-linux-system-for-the-stm32mp1-implementing-factory-flashing/)
+- [yocto project quick build](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#compatible-linux-distribution)
+- [yocto - Images](https://docs.yoctoproject.org/4.0.8/ref-manual/images.html)
+- [yocto - system requirements](https://docs.yoctoproject.org/dev/ref-manual/system-requirements.html)
