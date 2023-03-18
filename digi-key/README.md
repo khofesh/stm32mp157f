@@ -55,7 +55,7 @@ yoctor releases: https://wiki.yoctoproject.org/wiki/Releases
 
 Kirkstone seems to be the LTS, Long Term Support (minimum Apr. 2024¹)
 
-https://github.com/STMicroelectronics/meta-st-stm32mp 
+https://github.com/STMicroelectronics/meta-st-stm32mp
 
 ```shell
 cd poky
@@ -193,11 +193,17 @@ menuconfig
 bitbake -c menuconfig virtual/kernel
 ```
 
+somehow, my keyboard doesn't work. No Idea!
+
+![menuconfig](../images/Screenshot%20from%202023-03-18%2010-47-52.png)
+
 build image
 
 ```shell
 bitbake core-image-minimal-dev
 ```
+
+![build](../images/Screenshot%20from%202023-03-18%2011-36-43.png)
 
 there was an error and I had to do this
 
@@ -206,9 +212,16 @@ git config --global user.email "myemail@tutanota.com"
 git config --global user.name "fahmi ahmad"
 ```
 
+the images
+
+```shell
+cd tmp/deploy/images/stm32mp15-disco/
+```
+
+## flash SD card & boot process
+
 # References
+
 - https://github.com/STMicroelectronics/meta-st-stm32mp
 - https://github.com/STMicroelectronics/meta-st-openstlinux
 - https://layers.openembedded.org/layerindex/branch/master/layers/
-
-
