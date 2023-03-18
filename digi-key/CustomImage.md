@@ -45,4 +45,10 @@ sudo dd if=../FlashLayout_sdcard_stm32mp157f-dk2-optee.raw of=/dev/sdd bs=8M con
 
 ```
 
-yeah, can't login, lol
+now, it's working
+
+![change root password](../images/Screenshot%20from%202023-03-18%2021-03-53.png)
+
+- https://docs.yoctoproject.org/ref-manual/classes.html#extrausers-bbclass
+
+

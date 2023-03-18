@@ -13,7 +13,9 @@ inherit extrausers
 IMAGE_OVERHEAD_FACTOR ?="1.0"
 IMAGE_ROOTFS_SIZE ?= "204800"
 
-# change root password (note the capital -P)
+# change root password - letmein
+# printf "%q" $(mkpasswd -m sha256crypt letmein)
+PASSWD = "\$5\$9RrZCXONuuRNOdbQ\$YXJ3gIjE4BvnzKHhMyp2J7m28kpWwRZgqATzzvrcoa0"
 EXTRA_USERS_PARAMS = "\
-    usermod --password $(openssl passwd 'letmein') root \
+    usermod -p '${PASSWD}' root; \
 "
