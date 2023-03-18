@@ -242,3 +242,9 @@ sudo dd if=../FlashLayout_sdcard_stm32mp157f-dk2-optee.raw of=/dev/sdd bs=8M con
 - https://layers.openembedded.org/layerindex/branch/master/layers/
 - https://wiki.st.com/stm32mpu/wiki/Boot_chain_overview
 - https://www.st.com/content/my_st_com/en/products/embedded-software/mcu-mpu-embedded-software/stm32-embedded-software/stm32-mpu-openstlinux-distribution/stm32mp1starter.license=1679045326404.product=STM32MP15Starter.version=4.1.0.html#overview
+- https://wiki.st.com/stm32mpu/wiki/STM32MP1_Distribution_Package#Flashing_the_built_image
+- https://wiki.st.com/stm32mpu/wiki/STM32MP157x-DKx_-_hardware_description#Boot_related_switches
+- https://wiki.st.com/stm32mpu/wiki/STM32MP15_Discovery_kits_-_Starter_Package#Downloading_the_image_and_flashing_it_on_the_board
+- https://wiki.st.com/stm32mpu/wiki/STM32MP15_Discovery_kits_-_Starter_Package#Image_flashing
+- [How to populate the SD card with dd command](https://wiki.st.com/stm32mpu/wiki/How_to_populate_the_SD_card_with_dd_command)
+- [bootlin - Building a Linux system for the STM32MP1: implementing factory flashing](https://bootlin.com/blog/building-a-linux-system-for-the-stm32mp1-implementing-factory-flashing/)
