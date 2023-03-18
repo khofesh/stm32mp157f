@@ -2,6 +2,20 @@
 
 STM32MP157F-DK2
 
+# warning
+
+you might encounter the following on serial monitor
+
+```shell
+****************************************************                                             
+*        WARNING 500mA power supply detected       *                                             
+*     Current too low, use a 3A power supply!      *                                             
+****************************************************
+```
+
+- https://community.st.com/s/question/0D53W00000qvZllSAE/my-stm32mp157fdk2-is-powered-by-5v-3a-psu-but-at-the-boot-up-time-always-it-displays-the-warning
+- https://community.st.com/s/question/0D50X0000Bftr1ySQA/power-supply-for-stm32mp157cdk2
+
 # References
 
 - [product overview](https://www.st.com/en/evaluation-tools/stm32mp157f-dk2.html#overview)
